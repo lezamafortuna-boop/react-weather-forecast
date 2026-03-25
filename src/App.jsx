@@ -24,6 +24,7 @@ function App() {
 
   return (
     <div className="app">
+      <div className="header">SkyCast — Weather Anywhere</div>
       <h1>Weather Forecast</h1>
 
       <form onSubmit={handleSearch} className="search-form">
@@ -50,8 +51,8 @@ function App() {
       </div>
 
       {forecast.length > 0 && (
-        <div className="forecast-container">
-          <h3>5-Day Forecast</h3>
+        <div className="forecast-section">
+          <h3 className="forecast-title">5-Day Forecast</h3>
           <div className="forecast-grid">
             {forecast.map((day) => (
               <ForecastCard key={day.dt} day={day} unit={unit}   />

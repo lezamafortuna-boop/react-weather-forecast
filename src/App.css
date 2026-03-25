@@ -1,166 +1,166 @@
-/* Background */
-.app {
+/* GLOBAL STYLES */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   min-height: 100vh;
-  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
   color: #fff;
-  font-family: "Inter", system-ui, sans-serif;
 }
 
-/* Title */
-h1 {
-  margin-bottom: 2rem;
-  font-size: 2.5rem;
+h1, h2, h3, .forecast-title {
+  color: #09026cda;
+}
+
+/* HEADER / BRANDING */
+.header {
+  width: 100%;
+  padding: 25px 0;
+  text-align: center;
+  font-size: 2.2rem;
   font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.25);
 }
 
-/* Search Bar */
-.search-form {
+/* SEARCH BAR */
+.search-container {
+  margin-top: 20px;
   display: flex;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
 }
 
-.search-form input {
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
+.search-bar {
+  width: 70%;
+  max-width: 380px;
+  padding: 14px 20px;
+  border-radius: 30px;
   border: none;
-  min-width: 240px;
-  font-size: 1rem;
+  outline: none;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.search-form button {
-  padding: 0.75rem 1.25rem;
-  border-radius: 8px;
+.search-button {
+  padding: 14px 22px;
+  border-radius: 30px;
   border: none;
   background: #ffd700;
   color: #333;
   font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
   transition: 0.2s ease;
 }
 
-.search-form button:hover {
-  background: #ffea70;
+button:hover,
+.search-button:hover,
+.toggle-button:hover {
+  background-color: yellow;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
 
-/* Weather Card */
+
+/* MAIN WEATHER CARD */
 .weather-card {
+  margin-top: 30px;
   background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
   padding: 2rem;
-  border-radius: 16px;
+  width: 90%;
+  max-width: 420px;
   text-align: center;
-  max-width: 340px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 0.4s ease;
-  margin-top: 2 rem;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeIn 0.6s ease forwards;
 }
 
 .weather-icon {
-  width: 100px;
-  height: 100px;
-}
-
-.description {
-  text-transform: capitalize;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  width: 120px;
+  height: 120px;
 }
 
 .temp {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin: 10px 0;
+  color: #ffd700; /* bright yellow */
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.6); /* optional glow */
 }
 
-.details p {
-  margin: 0.25rem 0;
-  font-size: 0.95rem;
+
+.description {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  opacity: 0.9;
+  margin-bottom: 16px; /* add spacing below the description */
 }
 
-.card-container{
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
+
+.details {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.temp-value {
+  color: #076915; 
+  font-weight: 700;
 }
 
 /* Forecast Section */
-.forecast-container {
-  margin-top: 2rem;
+.forecast-section {
+  margin-top: 40px;
+  width: 100%;
   text-align: center;
 }
 
-.forecast-container h3 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  font-weight: 600;
+.forecast-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
 }
 
+/* 2 cards on top, 3 on bottom */
 .forecast-grid {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap;              /* allow multiple rows */
+  justify-content: center;      /* center rows */
+  gap: 1.2rem;
+  max-width: 460px;             /* 3 cards per row: 3*140 + gaps */
+  margin: 0 auto;               /* center the whole block */
+}
+
+/* On wider screens, switch to 3 cards per row */
+@media (min-width: 600px) {
+  .forecast-grid {
+    grid-template-columns: repeat(3, auto); /* 3 cards on top */
+  }
 }
 
 .forecast-card {
   background: rgba(255, 255, 255, 0.15);
-  padding: 1rem;
+  padding: 15px;
   border-radius: 12px;
-  width: 120px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  animation: fadeIn 0.4s ease;
+  width: 140px;              /* consistent card width */
+  text-align: center;
 }
 
-.forecast-date {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.forecast-icon {
-  width: 60px;
-  height: 60px;
-}
 
 .forecast-temp {
   font-size: 1.4rem;
-  font-weight: 700;
-  margin: 0.5rem 0;
-}
-
-.forecast-desc {
-  font-size: 0.85rem;
-  text-transform: capitalize;
-}
-
-.unit-toggle {
-  margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  border: none;
-  background: #ffffffaa;
-  color: #333;
   font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s ease;
 }
 
-.unit-toggle:hover {
-  background: #ffffffcc;
-}
-
-.unit-toggle {
-  opacity: 0;
-  animation: fadeIn 0.4s ease forwards;
-}
-
-/* Fade animation */
+/* ANIMATIONS */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
